@@ -80,3 +80,44 @@ While it's encouraged to use GitHub Actions for continuous integration and deplo
 > ***Just have fun and be creative***  :sunglasses:
 
 ***
+
+
+**Dependencies:**
+
+
+You might user docker-compose or run locally with node and npm. Tested node version is: ***>=18***. 
+
+***Create your .env file***:
+Create a new file called `.env` and pass the data from the variables from `.env.examples`. *PS: Current secret variables are for testing purposes only; no need to worry!*.
+
+***To run locally with node***:
+
+```
+# install all dependencies
+npm install
+# start server
+npm start
+
+```
+
+***To run with docker-compose***:
+```
+# to build your docker image
+docker-compose build
+# to run your built docker image
+docker-compose up
+# or simply run
+docker-compose up -d
+```
+
+***To check your .js files with eslint***:
+
+`npm run lint:fix`
+
+
+***Remaining features:***
+
+- [ ] Add more stats,
+- [ ] Use an external data api,
+- [ ] Deploy on a web server,
+- [ ] Add CI/CD,
