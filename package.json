@@ -1,0 +1,28 @@
+{
+  "name": "coding-challenge-backend",
+  "version": "1.0.0",
+  "description": "Samir Ahmane",
+  "main": "index.js",
+  "scripts": {
+    "test": "tester",
+    "start": "nodemon index.js",
+    "lint:fix": "eslint --fix ./*.js"
+  },
+  "author": "Samir Ahmane",
+  "license": "ISC",
+  "dependencies": {
+    "cryptr": "^6.3.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.5.3",
+    "nodemon": "^3.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.50.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-n": "^16.1.0",
+    "eslint-plugin-promise": "^6.1.1"
+  }
+}
