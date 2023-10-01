@@ -114,6 +114,11 @@ docker-compose up -d
 
 `npm run lint:fix`
 
+***Test the API with Postman***:
+
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/14850055-8e3f3af1-0d11-4f78-bef8-8a8c1b96ddce?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D14850055-8e3f3af1-0d11-4f78-bef8-8a8c1b96ddce%26entityType%3Dcollection%26workspaceId%3D496bce40-0795-43f7-97da-f8678b26ab62)
+
 
 ***Remaining features:***
 
