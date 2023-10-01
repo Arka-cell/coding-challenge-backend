@@ -5,6 +5,7 @@ const Cryptr = require('cryptr')
 const User = require('../model/userModel.js')
 const Product = require('../model/productModel.js')
 const Purchase = require('../model/purchaseModel.js')
+const utils = require('../utils/helpers.js')
 
 const cryptr = new Cryptr(process.env.PASSWORD_SECRET)
 const jwtSecret = process.env.JWT_SECRET
@@ -204,6 +205,12 @@ router.get('/purchases/stats', async (req, res) => {
     } catch (err) {
         res.status(400).json({ message: err.message })
     }
+})
+
+router.get('/fetch-card', async (req, res) => {
+    const data = await utils.getRandomMasterCards()
+    console.log(data)
+    res.send({ credit_cards: data })
 })
 
 module.exports = router
