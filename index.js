@@ -2,6 +2,8 @@ require('dotenv').config()
 
 const express = require('express')
 const mongoose = require('mongoose')
+const bodyParser = require('body-parser')
+
 const mongoString = process.env.DATABASE_URL
 
 mongoose.connect(mongoString)
@@ -18,7 +20,7 @@ const app = express()
 
 const shopRoutes = require('./routes/shopRoutes')
 const authRoutes = require('./routes/authRoutes')
-app.use(express.json())
+app.use(bodyParser.json())
 app.use('/api/shop', shopRoutes)
 app.use('/api/auth', authRoutes)
 
