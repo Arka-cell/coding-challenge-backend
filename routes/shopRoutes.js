@@ -179,29 +179,39 @@ router.get('/purchases', async (req, res) => {
     }
 })
 
-/* router.get('/purchases/:id', async (req, res) => {
-    try {
-        const id = req.params.id
-        const purchase = await Purchase.findById(id)
-        if (purchase.user_id != res.locals.user_id) {
-            res.json({ "message": "Purchase not found" })
-        }
-        res.json(purchase)
-    } catch (err) {
-        res.status(400).json({ message: err.message })
-    }
-}) */
-
 router.get('/purchases/stats', async (req, res) => {
     try {
         const totalPurchases = await Purchase.count().exec()
         const productPurchases = await Purchase.aggregate([
             { $group: { _id: '$product_id', count: { $count: {} } } }
         ])
-        // const trends = await Purchase.find()
-        console.log(totalPurchases)
-        console.log(productPurchases)
-        res.json({ total_purchases: totalPurchases, product_purchases: productPurchases, top_products: productPurchases.slice(0, 10) })
+        const weekOne = new Date()
+        const pastDate = weekOne.getDate() - 7
+        weekOne.setDate(pastDate)
+        const lastWeekTrends = await Purchase.aggregate([
+            {
+                $match: {
+                    createdAt: {
+                        $gte: weekOne
+                    }
+                }
+            },
+            {
+                $group: {
+                    _id: '$product_id',
+                    count: {
+                        $count: {}
+                    }
+                }
+            }
+
+        ])
+        res.json({
+            total_purchases: totalPurchases,
+            product_purchases: productPurchases,
+            top_products: productPurchases.slice(0, 10),
+            last_week_trends: lastWeekTrends
+        })
     } catch (err) {
         res.status(400).json({ message: err.message })
     }
