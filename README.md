@@ -122,7 +122,7 @@ docker-compose up -d
 
 ***Remaining features:***
 
-- [ ] Add more stats,
+- [x] Add more stats,
 - [x] Use an external data api,
-- [ ] Deploy on a web server,
-- [ ] Add CI/CD,
+- [x] Deploy on a web server,
+- [x] Add CI/CD,
