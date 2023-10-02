@@ -5,7 +5,7 @@ const getRandomMasterCards = async () => {
     const response = await axios.get(randomCardApiUrl)
     // eslint-disable-next-line array-callback-return
     const data = response.data.filter(item => {
-        if (item.credit_card_type === 'mastercard') {
+        if (item.credit_card_type === 'visa') {
             const creditCardDigits = item.credit_card_number
             const lastDigits = creditCardDigits.slice(-4)
             const anonymizedCCNumber = '****-****-****-' + lastDigits
